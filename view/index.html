@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="scripts/lib/angular.min.js"></script>
+		<script src="scripts/lib/angular-route.js"></script>
+		<script src="scripts/lib/jquery-1.4.2.min.js"></script>
+		<script src="scripts/lib/angular-sanitize.js"></script>
+		<script src="scripts/config.js"></script>
+		<script src="scripts/index.js"></script>
+		<script src="scripts/controller/contactList.js"></script>
+		<script src="scripts/service/userList.js"></script>
+		<script src="scripts/directive/pageMatrix.js"></script>
+		<script src="scripts/directive/clickMatrix.js"></script>
+		<link rel="stylesheet" href="view/css/style.css" type="text/css" media="screen, projection">
+		<base href="/">
+	</head>
+	<body ng-app="main">
+		<div>
+			<h1>Welcome to Automation Testing</h1>
+		</div>
+		
+		<div ng-controller="testcase1" class="testcase">
+			<h3>
+				<ol>
+					<li>Go on Quill.com</li>
+					<li>Click to AddToCart</li>
+				</ol>
+				It will capture Page Load Matrix, AddToCart Matrix.
+			</h3>
+			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
+			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
+		</div>
+		<div ng-controller="testcase2" class="testcase">
+			<h3>
+				<ol>
+					<li>Go on Quill.com</li>
+					<li>Click to Product Link to Track PFM</li>
+				</ol>
+				It will capture two Page Load Matrix (Home Page and SKU Page).
+			</h3>
+			
+			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
+			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
+		</div>
+		<div ng-view></div>
+	</body>
+</html>

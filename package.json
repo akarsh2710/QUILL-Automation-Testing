@@ -1,0 +1,19 @@
+{
+  "name": "test2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "express": "^4.13.4",
+    "http": "0.0.0",
+    "node-horseman": "^3.0.1",
+    "phantom": "^2.0.10",
+    "phantomjs": "^2.1.7"
+  }
+}
