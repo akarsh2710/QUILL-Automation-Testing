@@ -13,6 +13,7 @@ app.controller("testcase1", function($scope,$http,$sce){
 	var resData = [];
 	$scope.pageMatrixCol = [];
 	$scope.clickMatrixCol = [];
+	$scope.loading = true;
 	$http({ method: "GET",
             url: "http://localhost:8090/test1",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -22,12 +23,13 @@ app.controller("testcase1", function($scope,$http,$sce){
 		console.log(response);
 		resData = response.data;
 		matrixIdentifier();
-		
+		$scope.loading = false;
 	}).
 	error(function(response) {
 		console.log("error"); // Getting Error Response in Callback
 		$scope.codeStatus = response || "Request failed";
 		console.log($scope.codeStatus);
+		$scope.loading = false;
 	});
 	var matrixIdentifier = function(){
 		for(var k=0; k<resData.length; k++)
@@ -51,6 +53,7 @@ app.controller("testcase2", function($scope,$http,$sce){
 	var resData = [];
 	$scope.pageMatrixCol = [];
 	$scope.clickMatrixCol = [];
+	$scope.loading = true;
 	$http({ method: "GET",
             url: "http://localhost:8090/test2",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -60,12 +63,13 @@ app.controller("testcase2", function($scope,$http,$sce){
 		console.log(response);
 		resData = response.data;
 		matrixIdentifier();
-		
+		$scope.loading = false;
 	}).
 	error(function(response) {
 		console.log("error"); // Getting Error Response in Callback
 		$scope.codeStatus = response || "Request failed";
 		console.log($scope.codeStatus);
+		$scope.loading = false;
 	});
 	var matrixIdentifier = function(){
 		for(var k=0; k<resData.length; k++)

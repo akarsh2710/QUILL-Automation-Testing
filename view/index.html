@@ -27,6 +27,7 @@
 				</ol>
 				It will capture Page Load Matrix, AddToCart Matrix.
 			</h3>
+			<img id="mySpinner" src="/view/img/spinner.gif" ng-show="loading" />
 			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
 			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
 		</div>
@@ -38,7 +39,7 @@
 				</ol>
 				It will capture two Page Load Matrix (Home Page and SKU Page).
 			</h3>
-			
+			<img id="mySpinner" src="/view/img/spinner.gif" ng-show="loading" />
 			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
 			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
 		</div>
