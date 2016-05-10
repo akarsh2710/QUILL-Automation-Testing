@@ -8,7 +8,7 @@ app.config(['$httpProvider', function($httpProvider) {
     }
 ]);
 app.controller("testcase1", function($scope,$http,$sce){
-	console.log($scope);
+	//console.log($scope);
 	//$scope.testname = "testing";
 	var resData = [];
 	$scope.pageMatrixCol = [];
@@ -42,13 +42,13 @@ app.controller("testcase1", function($scope,$http,$sce){
 		}
 	}
 	$scope.decodeHtml = function(someHtmlVar){
-		console.log("someHtmlVar::"+someHtmlVar+":::"+$sce.trustAsHtml(someHtmlVar))
+		//console.log("someHtmlVar::"+someHtmlVar+":::"+$sce.trustAsHtml(someHtmlVar))
 		return $sce.trustAsHtml(unescape(someHtmlVar));
 		
 	}
 })
 app.controller("testcase2", function($scope,$http,$sce){
-	console.log($scope);
+	//console.log($scope);
 	//$scope.testname = "testing";
 	var resData = [];
 	$scope.pageMatrixCol = [];
@@ -82,7 +82,7 @@ app.controller("testcase2", function($scope,$http,$sce){
 		}
 	}
 	$scope.decodeHtml = function(someHtmlVar){
-		console.log("someHtmlVar::"+someHtmlVar+":::"+$sce.trustAsHtml(someHtmlVar))
+		//console.log("someHtmlVar::"+someHtmlVar+":::"+$sce.trustAsHtml(someHtmlVar))
 		return $sce.trustAsHtml(unescape(someHtmlVar));
 		
 	}

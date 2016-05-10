@@ -1,5 +1,15 @@
-<div class="container">
-	<h4>Page Matrix</h4>
+<div class="container" name="myForm" ng-form>
+	<h4 style="float:left;" ng-bind-html="decodeHtml(myForm.pageType.$viewValue+': Page Load Matrix')"></h4>
+	<div style="float:right;position:absolute;right:50%; width:300px;">
+		<div ng-show='myForm.$error.required' style="position: absolute;color:">
+			<h4>All Matrix Loaded: <span style="color:red;">False</span></h4>
+			<h4>These are the missing elements: <span style="color:red;" ng-repeat="error in myForm.$error.required">{{error.$name}},</span></h4>
+		</div>
+		<div ng-hide='myForm.$error.required' style="position: absolute;">
+			<h4>All Matrix Loaded: <span style="color:green;">True</span></h4>
+				
+		</div>
+	</div>
 	<table class="tableSection">
 		<thead>
 			<tr>
@@ -7,10 +17,184 @@
 				<td>value</td>
 			</tr>
 		</thead>
-		<tbody>
-			<tr ng-repeat="(key,val) in pageMatrix">
-				<td>{{key}}</td>
+		<tbody ng-model="pageMatrix">
+			<!--tr ng-repeat="(key,val) in pageMatrix">
+				<td sc-id="{{key}}" sc-val="{{val}}">{{key}}</td>
 				<td ng-bind-html="decodeHtml(val)"></td>
+			</tr-->
+			<tr>
+				<td sc-val="{{pageMatrix.pageName}}">pageName</td>
+				<td name="pageName" ng-model="pageMatrix.pageName" ng-bind-html="decodeHtml(pageMatrix.pageName)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.pageType}}">pageType</td>
+				<td name="pageType" ng-model="pageMatrix.pageType" ng-bind-html="decodeHtml(pageMatrix.pageType)" required></td>
+			</tr>
+			
+			<tr>
+				<td sc-val="{{pageMatrix.server}}">server</td>
+				<td name="server" ng-model="pageMatrix.server" ng-bind-html="decodeHtml(pageMatrix.server)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.events}}">events</td>
+				<td name="events" ng-model="pageMatrix.events" ng-bind-html="decodeHtml(pageMatrix.events)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c4}}">c4</td>
+				<td name="c4" ng-model="pageMatrix.c4" ng-bind-html="decodeHtml(pageMatrix.c4)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c5}}">c5</td>
+				<td name="c5" ng-model="pageMatrix.c5" ng-bind-html="decodeHtml(pageMatrix.c5)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c6}}">c6</td>
+				<td name="c6" ng-model="pageMatrix.c6" ng-bind-html="decodeHtml(pageMatrix.c6)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c7}}">c7</td>
+				<td name="c7" ng-model="pageMatrix.c7" ng-bind-html="decodeHtml(pageMatrix.c7)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c8}}">c8</td>
+				<td name="c8" ng-model="pageMatrix.c8" ng-bind-html="decodeHtml(pageMatrix.c8)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c9}}">c9</td>
+				<td name="c9" ng-model="pageMatrix.c9" ng-bind-html="decodeHtml(pageMatrix.c9)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Sku'">
+				<td sc-val="{{pageMatrix.v11}}">v11</td>
+				<td name="v11" ng-model="pageMatrix.v11" ng-bind-html="decodeHtml(pageMatrix.v11)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v17}}">v17</td>
+				<td name="v17" ng-model="pageMatrix.v17" ng-bind-html="decodeHtml(pageMatrix.v17)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v18}}">v18</td>
+				<td name="v18" ng-model="pageMatrix.v18" ng-bind-html="decodeHtml(pageMatrix.v18)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c18}}">c18</td>
+				<td name="c18" ng-model="pageMatrix.c18" ng-bind-html="decodeHtml(pageMatrix.c18)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c33}}">c33</td>
+				<td name="c33" ng-model="pageMatrix.c33" ng-bind-html="decodeHtml(pageMatrix.c33)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v43}}">v43</td>
+				<td name="v43" ng-model="pageMatrix.v43" ng-bind-html="decodeHtml(pageMatrix.v43)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v44}}">v44</td>
+				<td name="v44" ng-model="pageMatrix.v44" ng-bind-html="decodeHtml(pageMatrix.v44)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v46}}">v46</td>
+				<td name="v46" ng-model="pageMatrix.v46" ng-bind-html="decodeHtml(pageMatrix.v46)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v49}}">v49</td>
+				<td name="v49" ng-model="pageMatrix.v49" ng-bind-html="decodeHtml(pageMatrix.v49)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v56}}">v56</td>
+				<td name="v56" ng-model="pageMatrix.v56" ng-bind-html="decodeHtml(pageMatrix.v56)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c64}}">c64</td>
+				<td name="c64" ng-model="pageMatrix.c64" ng-bind-html="decodeHtml(pageMatrix.c64)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v65}}">v65</td>
+				<td name="v65" ng-model="pageMatrix.v65" ng-bind-html="decodeHtml(pageMatrix.v65)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c67}}">c67</td>
+				<td name="c67" ng-model="pageMatrix.c67" ng-bind-html="decodeHtml(pageMatrix.c67)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Sku'">
+				<td sc-val="{{pageMatrix.v72}}">v72</td>
+				<td name="v72" ng-model="pageMatrix.v72" ng-bind-html="decodeHtml(pageMatrix.v72)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v73}}">v73</td>
+				<td name="v73" ng-model="pageMatrix.v73" ng-bind-html="decodeHtml(pageMatrix.v73)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c75}}">c75</td>
+				<td name="c75" ng-model="pageMatrix.c75" ng-bind-html="decodeHtml(pageMatrix.c75)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v75}}">v75</td>
+				<td name="v75" ng-model="pageMatrix.v75" ng-bind-html="decodeHtml(pageMatrix.v75)" required></td>
+			</tr>
+			<tr >
+				<td sc-val="{{pageMatrix.AQB}}">AQB</td>
+				<td name="AQB" ng-model="pageMatrix.AQB" ng-bind-html="decodeHtml(pageMatrix.AQB)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.AQE}}">AQE</td>
+				<td name="AQE" ng-model="pageMatrix.AQE" ng-bind-html="decodeHtml(pageMatrix.AQE)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.bh}}">bh</td>
+				<td name="bh" ng-model="pageMatrix.bh" ng-bind-html="decodeHtml(pageMatrix.bh)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.bw}}">bw</td>
+				<td name="bw" ng-model="pageMatrix.bw" ng-bind-html="decodeHtml(pageMatrix.bw)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c}}">c</td>
+				<td name="c" ng-model="pageMatrix.c" ng-bind-html="decodeHtml(pageMatrix.c)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.cdp}}">cdp</td>
+				<td name="cdp" ng-model="pageMatrix.cdp" ng-bind-html="decodeHtml(pageMatrix.cdp)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.ch}}">ch</td>
+				<td name="ch" ng-model="pageMatrix.ch" ng-bind-html="decodeHtml(pageMatrix.ch)" required></td>
+			</tr>
+			
+			<tr>
+				<td sc-val="{{pageMatrix.fid}}">fid</td>
+				<td name="fid" ng-model="pageMatrix.fid" ng-bind-html="decodeHtml(pageMatrix.fid)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.g}}">g</td>
+				<td name="g" ng-model="pageMatrix.g" ng-bind-html="decodeHtml(pageMatrix.g)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.j}}">j</td>
+				<td name="j" ng-model="pageMatrix.j" ng-bind-html="decodeHtml(pageMatrix.j)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.k}}">k</td>
+				<td name="k" ng-model="pageMatrix.k" ng-bind-html="decodeHtml(pageMatrix.k)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.ndh}}">ndh</td>
+				<td name="ndh" ng-model="pageMatrix.ndh" ng-bind-html="decodeHtml(pageMatrix.ndh)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.ns}}">ns</td>
+				<td name="ns" ng-model="pageMatrix.ns" ng-bind-html="decodeHtml(pageMatrix.ns)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.s}}">s</td>
+				<td name="s" ng-model="pageMatrix.s" ng-bind-html="decodeHtml(pageMatrix.s)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.t}}">t</td>
+				<td name="t" ng-model="pageMatrix.t" ng-bind-html="decodeHtml(pageMatrix.t)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v}}">v</td>
+				<td name="v" ng-model="pageMatrix.v" ng-bind-html="decodeHtml(pageMatrix.v)" required></td>
 			</tr>
 		</tbody>
 	</table>	
