@@ -21,23 +21,45 @@
 		
 		<div ng-controller="testcase1" class="testcase">
 			<h3>
+				<div style="position:absolute;float:right;right:50%;">Perform All test cases: <span ng-if="executeAll==true" style="color:green">true</span><span ng-if="executeAll==false" style="color:red">false</span></div>
 				<ol>
 					<li>Go on Quill.com</li>
 					<li>Click to AddToCart</li>
 				</ol>
 				It will capture Page Load Matrix, AddToCart Matrix.
 			</h3>
+			
 			<img id="mySpinner" src="/view/img/spinner.gif" ng-show="loading" />
 			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
 			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
 		</div>
 		<div ng-controller="testcase2" class="testcase">
 			<h3>
+				<div style="position:absolute;float:right;right:50%;">Perform All test cases: <span ng-if="executeAll==true" style="color:green">true</span><span ng-if="executeAll==false" style="color:red">false</span></div>
 				<ol>
 					<li>Go on Quill.com</li>
 					<li>Click to Product Link to Track PFM</li>
 				</ol>
 				It will capture two Page Load Matrix (Home Page and SKU Page).
+			</h3>
+			<img id="mySpinner" src="/view/img/spinner.gif" ng-show="loading" />
+			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>
+			<div ng-repeat="clickData in clickMatrixCol" click-matrix></div>
+		</div>
+		<div ng-controller="testcase3" class="testcase">
+			<h3>
+				<div style="position:absolute;float:right;right:50%;">Perform All test cases: <span ng-if="executeAll==true" style="color:green">true</span><span ng-if="executeAll==false" style="color:red">false</span></div>
+				1. Go on Quill.com<br>
+				2. Click to AddToCart<br>
+				3. Click to Product link<br>
+				4. Do search for Paper<br>
+				5. Click to AddToCart from search page<br>
+				6. Click to Show Cart page<br>
+				7. Enter Login Credential<br>
+				8. Do Merge cart<br>
+				9. Go to Checkout<br>
+				
+				It will capture Page Load Matrix, AddToCart Matrix.
 			</h3>
 			<img id="mySpinner" src="/view/img/spinner.gif" ng-show="loading" />
 			<div ng-repeat="pageMatrix in pageMatrixCol" page-matrix></div>

@@ -39,4 +39,18 @@ app.get("/test2",function(req,res){
 		
 	})
 })
+var test3 = require("./scripts/testcases/testcase3");
+app.get("/test3",function(req,res){
+	console.log("get first index")
+	res.type('application/json');
+	//res.sendFile(path.join(__dirname + '/view/index.html'));
+	//res.render('users/signup')
+	new test3(function(data){
+		var resData = {};
+		resData.status = 200;
+		resData.data = data;
+		res.json(resData);
+		
+	})
+})
 module.exports = app

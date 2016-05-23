@@ -14,6 +14,7 @@ app.controller("testcase1", function($scope,$http,$sce){
 	$scope.pageMatrixCol = [];
 	$scope.clickMatrixCol = [];
 	$scope.loading = true;
+	$scope.executeAll = false;
 	$http({ method: "GET",
             url: "http://localhost:8090/test1",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -21,7 +22,8 @@ app.controller("testcase1", function($scope,$http,$sce){
 	success(function(response) {
 		console.log("success"); // Getting Success Response in Callback
 		console.log(response);
-		resData = response.data;
+		resData = response.data.matrix;
+		$scope.executeAll = response.data.executeAll;
 		matrixIdentifier();
 		$scope.loading = false;
 	}).
@@ -54,6 +56,7 @@ app.controller("testcase2", function($scope,$http,$sce){
 	$scope.pageMatrixCol = [];
 	$scope.clickMatrixCol = [];
 	$scope.loading = true;
+	$scope.executeAll = false;
 	$http({ method: "GET",
             url: "http://localhost:8090/test2",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -61,7 +64,50 @@ app.controller("testcase2", function($scope,$http,$sce){
 	success(function(response) {
 		console.log("success"); // Getting Success Response in Callback
 		console.log(response);
-		resData = response.data;
+		resData = response.data.matrix;
+		$scope.executeAll = response.data.executeAll;
+		matrixIdentifier();
+		$scope.loading = false;
+	}).
+	error(function(response) {
+		console.log("error"); // Getting Error Response in Callback
+		$scope.codeStatus = response || "Request failed";
+		console.log($scope.codeStatus);
+		$scope.loading = false;
+	});
+	var matrixIdentifier = function(){
+		for(var k=0; k<resData.length; k++)
+		{
+			if(!!resData[k].pe){
+				$scope.clickMatrixCol.push(resData[k]);
+			}else{
+				$scope.pageMatrixCol.push(resData[k]);
+			}
+		}
+	}
+	$scope.decodeHtml = function(someHtmlVar){
+		//console.log("someHtmlVar::"+someHtmlVar+":::"+$sce.trustAsHtml(someHtmlVar))
+		return $sce.trustAsHtml(unescape(someHtmlVar));
+		
+	}
+})
+app.controller("testcase3", function($scope,$http,$sce){
+	//console.log($scope);
+	//$scope.testname = "testing";
+	var resData = [];
+	$scope.pageMatrixCol = [];
+	$scope.clickMatrixCol = [];
+	$scope.loading = true;
+	$scope.executeAll = false;
+	$http({ method: "GET",
+            url: "http://localhost:8090/test3",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+	}).
+	success(function(response) {
+		console.log("success"); // Getting Success Response in Callback
+		console.log(response);
+		resData = response.data.matrix;
+		$scope.executeAll = response.data.executeAll;
 		matrixIdentifier();
 		$scope.loading = false;
 	}).

@@ -3,7 +3,11 @@ var TestCase = function(cb){
 	console.log("u have called TestCase2");
 	//console.log("root"+root);
 	//utils.printOnHTML(parent, "<h3>My Test is for Page Load and PFM link click and PFM tracking</h3>");
-	var matrix = []
+	var returnObj = {};
+	var matrix = [];
+	var objRef = this;
+	returnObj.matrix = matrix;
+	returnObj.executeAll = true;
 	var objRef = this;
 	var horseman = new Horseman();
 	horseman
@@ -27,6 +31,22 @@ var TestCase = function(cb){
 		console.log("loading started");
 		console.log(response);
 	})
+	.on('error', function(msg){
+		console.log("some error");
+		if(typeof cb === "function"){
+			//console.log(matrix)
+			//returnObj.executeAll = false;
+			//cb(returnObj);
+		}
+	})
+	.on('timeout', function(msg){
+		console.log("time out error");
+		if(typeof cb === "function"){
+			//console.log(matrix)
+			returnObj.executeAll = false;
+			cb(returnObj);
+		}
+	})
 	.open("http://quill.com")
 	.evaluate(function(){
 		return window.Analytics;
@@ -45,7 +65,7 @@ var TestCase = function(cb){
 		//console.log("typeof cb:::"+typeof cb);
 		if(typeof cb === "function"){
 			//console.log(matrix)
-			cb(matrix);
+			cb(returnObj);
 		}
 	})
 	.close();

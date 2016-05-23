@@ -1,5 +1,5 @@
 <div class="container" name="myForm" ng-form>
-	<h4 style="float:left;" ng-bind-html="decodeHtml(myForm.pageType.$viewValue+': Page Load Matrix')"></h4>
+	<h4 style="float:left;" ng-bind-html="decodeHtml('Page('+myForm.pageName.$viewValue+') Load Matrix')"></h4>
 	<div style="float:right;position:absolute;right:50%; width:300px;">
 		<div ng-show='myForm.$error.required' style="position: absolute;color:">
 			<h4>All Matrix Loaded: <span style="color:red;">False</span></h4>
@@ -39,6 +39,18 @@
 				<td sc-val="{{pageMatrix.events}}">events</td>
 				<td name="events" ng-model="pageMatrix.events" ng-bind-html="decodeHtml(pageMatrix.events)" required></td>
 			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.c1}}">c1</td>
+				<td name="c1" ng-model="pageMatrix.c1" ng-bind-html="decodeHtml(pageMatrix.c1)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.v1}}">v1</td>
+				<td name="v1" ng-model="pageMatrix.v1" ng-bind-html="decodeHtml(pageMatrix.v1)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.c2}}">c2</td>
+				<td name="c2" ng-model="pageMatrix.c2" ng-bind-html="decodeHtml(pageMatrix.c2)" required></td>
+			</tr>
 			<tr>
 				<td sc-val="{{pageMatrix.c4}}">c4</td>
 				<td name="c4" ng-model="pageMatrix.c4" ng-bind-html="decodeHtml(pageMatrix.c4)" required></td>
@@ -63,9 +75,29 @@
 				<td sc-val="{{pageMatrix.c9}}">c9</td>
 				<td name="c9" ng-model="pageMatrix.c9" ng-bind-html="decodeHtml(pageMatrix.c9)" required></td>
 			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.c11}}">c11</td>
+				<td name="c11" ng-model="pageMatrix.c11" ng-bind-html="decodeHtml(pageMatrix.c11)" required></td>
+			</tr>
 			<tr ng-if="pageMatrix.pageType=='Sku'">
 				<td sc-val="{{pageMatrix.v11}}">v11</td>
 				<td name="v11" ng-model="pageMatrix.v11" ng-bind-html="decodeHtml(pageMatrix.v11)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c13}}">c13</td>
+				<td name="c13" ng-model="pageMatrix.c13" ng-bind-html="decodeHtml(pageMatrix.c13)" ></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c14}}">c14</td>
+				<td name="c14" ng-model="pageMatrix.c14" ng-bind-html="decodeHtml(pageMatrix.c14)" ></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.v14}}">v14</td>
+				<td name="v14" ng-model="pageMatrix.v14" ng-bind-html="decodeHtml(pageMatrix.v14)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.v15}}">v15</td>
+				<td name="v15" ng-model="pageMatrix.v15" ng-bind-html="decodeHtml(pageMatrix.v15)" required></td>
 			</tr>
 			<tr>
 				<td sc-val="{{pageMatrix.v17}}">v17</td>
@@ -78,6 +110,30 @@
 			<tr>
 				<td sc-val="{{pageMatrix.c18}}">c18</td>
 				<td name="c18" ng-model="pageMatrix.c18" ng-bind-html="decodeHtml(pageMatrix.c18)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v21}}">v21</td>
+				<td name="v21" ng-model="pageMatrix.v21" ng-bind-html="decodeHtml(pageMatrix.v21)" ></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v22}}">v22</td>
+				<td name="v22" ng-model="pageMatrix.v22" ng-bind-html="decodeHtml(pageMatrix.v22)" ></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c25}}">c25</td>
+				<td name="c25" ng-model="pageMatrix.c25" ng-bind-html="decodeHtml(pageMatrix.c25)" ></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.c26}}">c26</td>
+				<td name="c26" ng-model="pageMatrix.c26" ng-bind-html="decodeHtml(pageMatrix.c26)" ></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.v29}}">v29</td>
+				<td name="v29" ng-model="pageMatrix.v29" ng-bind-html="decodeHtml(pageMatrix.v29)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.c30}}">c30</td>
+				<td name="c30" ng-model="pageMatrix.c30" ng-bind-html="decodeHtml(pageMatrix.c30)" required></td>
 			</tr>
 			<tr>
 				<td sc-val="{{pageMatrix.c33}}">c33</td>
@@ -98,6 +154,14 @@
 			<tr>
 				<td sc-val="{{pageMatrix.v49}}">v49</td>
 				<td name="v49" ng-model="pageMatrix.v49" ng-bind-html="decodeHtml(pageMatrix.v49)" required></td>
+			</tr>
+			<tr ng-if="pageMatrix.pageType=='Search'">
+				<td sc-val="{{pageMatrix.v50}}">v50</td>
+				<td name="v50" ng-model="pageMatrix.v50" ng-bind-html="decodeHtml(pageMatrix.v50)" required></td>
+			</tr>
+			<tr>
+				<td sc-val="{{pageMatrix.v54}}">v54</td>
+				<td name="v54" ng-model="pageMatrix.v54" ng-bind-html="decodeHtml(pageMatrix.v54)" ></td>
 			</tr>
 			<tr>
 				<td sc-val="{{pageMatrix.v56}}">v56</td>
